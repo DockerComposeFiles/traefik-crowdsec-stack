@@ -56,5 +56,7 @@ services:
       - ${ABSOLUTE_PATH}/data/traefik/.htpasswd:/etc/traefik/.htpasswd
       - ${ABSOLUTE_PATH}/data/traefik/certs/acme_letsencrypt.json:/etc/traefik/acme_letsencrypt.json
       - ${ABSOLUTE_PATH}/data/traefik/certs/tls_letsencrypt.json:/etc/traefik/tls_letsencrypt.json
+      - ${ABSOLUTE_PATH}/data/traefik/certs/dns_letsencrypt.json:/etc/traefik/dns_letsencrypt.json
+      - ${ABSOLUTE_PATH}/data/traefik/certs/acme_buypass.json:/etc/traefik/acme_buypass.json
       - ${ABSOLUTE_PATH}/data/traefik/dynamic_conf:/etc/traefik/dynamic_conf:ro
       - /var/log/traefik/:/var/log/traefik/

@@ -17,6 +17,27 @@ certificatesResolvers:
       email: "deine@email.de"
       storage: "/etc/traefik/tls_letsencrypt.json"
       tlsChallenge: {}
+  dns_resolver:
+    acme:
+      email: "deine@email.de"
+      storage: "/etc/traefik/dns_letsencrypt.json"
+      dnsChallenge:
+        #providers:
+        #  - name: cloudflare
+        #  - credentialsFile: ./cloudflare-credentials.ini
+        #domains:
+        #  - main: example.de
+        #    props: {}
+        resolvers:
+          - "1.1.1.1:53" # cloudflare
+          - "8.8.8.8:53" # google public dns
+  buypass_resolver:
+    acme:
+      email: "deine@email.de"
+      storage: "/etc/traefik/acme_buypass.json"
+      caServer: https://api.buypass.com/acme/directory
+      httpChallenge:
+        entryPoint: web
 
 entryPoints:
   ping:
